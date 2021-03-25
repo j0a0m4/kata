@@ -4,6 +4,7 @@ const makeDictionary = (dict, letter) => ({
   ...dict,
   [letter]: letter in dict ? dict[letter] + 1 : 1,
 });
+
 const compose = (...functions) => args =>
   functions.reduceRight((arg, fn) => fn(arg), args);
 
