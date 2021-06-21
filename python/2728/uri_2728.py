@@ -1,3 +1,5 @@
+# kata: https://www.urionlinejudge.com.br/judge/pt/problems/view/2728
+
 def main():
     while True:
         try:
