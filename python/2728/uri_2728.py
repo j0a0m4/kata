@@ -11,12 +11,17 @@ def main():
 
 def solution(text: str) -> str:
     words = text.split('-')
-    result = {predicate(word) for word in words}
-    return "GRACE HOPPER" if False not in result else "BUG"
+    is_bug = False
+
+    for i in range(len(words)):
+        is_bug = check_bug(words[i], i)
+        if is_bug: return "BUG"
+
+    return "GRACE HOPPER"
 
 
-def predicate(word: str) -> bool:
-    letters = {"c", "o", "b", "l"}
-    initial = word[0].lower()
-    ending = word[-1].lower()
-    return initial in letters or ending in letters
+def check_bug(letter: str, index: int) -> bool:
+    letters = ['c', 'o', 'b', 'o', 'l']
+    initial = letter[0].lower()
+    ending = letter[-1].lower()
+    return letters[index] not in (initial, ending)

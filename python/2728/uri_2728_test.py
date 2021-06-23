@@ -5,10 +5,14 @@ SCENARIOS_FILE = "uri_2728_scenarios.txt"
 
 def assert_is_equal(example, expected):
     actual = solution(example)
-    display = f"solution(\"{example}\") == \"{expected}\""
-    assert actual == expected, f"FAIL! \t {display}"
-    print(f"PASSED! \t {display}")
 
+    display = f"""
+    \t Case: solution(\"{example}\")
+    \t Expected: {expected}
+    \t Actual: {actual}"""
+
+    assert actual == expected, f"FAIL! {display}"
+    print(f"PASSED! {display}")
 
 with open(SCENARIOS_FILE, 'r') as reader:
     for line in reader:
