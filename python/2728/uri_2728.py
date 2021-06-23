@@ -15,13 +15,15 @@ def solution(text: str) -> str:
 
     for i in range(len(words)):
         is_bug = check_bug(words[i], i)
-        if is_bug: return "BUG"
+        if is_bug:
+            return "BUG"
 
     return "GRACE HOPPER"
 
 
-def check_bug(letter: str, index: int) -> bool:
+def check_bug(word: str, index: int) -> bool:
     letters = ['c', 'o', 'b', 'o', 'l']
-    initial = letter[0].lower()
-    ending = letter[-1].lower()
-    return letters[index] not in (initial, ending)
+    letter = letters[index]
+    initial = word[0].lower()
+    ending = word[-1].lower()
+    return letter not in (initial, ending)
